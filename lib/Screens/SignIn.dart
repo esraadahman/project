@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task_flutter/Screens/SignUp.dart';
+import 'package:task_flutter/Screens/forget_password.dart';
 
 class MyValidation {
   String? nameValidate(String value) {
@@ -32,6 +34,8 @@ class SignInForm extends StatefulWidget {
 
 class _SignInFormState extends State<SignInForm> {
   final TextEditingController _nameController = TextEditingController();
+   final TextEditingController _EmailController = TextEditingController();
+    final TextEditingController _PasswordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -60,9 +64,10 @@ class _SignInFormState extends State<SignInForm> {
               labelText: 'Name',
             ),
           ),
+           SizedBox(height: 20),
 
            TextFormField(
-            controller: _nameController,
+            controller: _EmailController,
             keyboardType: TextInputType.name,
            
             decoration: InputDecoration(
@@ -78,7 +83,29 @@ class _SignInFormState extends State<SignInForm> {
                 borderSide: const BorderSide(color: Colors.red, width: 2),
                 borderRadius: BorderRadius.circular(5),
               ),
-              labelText: 'Name',
+              labelText: 'Email',
+            ),
+          ),
+           SizedBox(height: 20),
+
+          TextFormField(
+            controller: _PasswordController,
+            keyboardType: TextInputType.number,
+           
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.grey, width: 2),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.blue, width: 2),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.red, width: 2),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              labelText: 'Password',
             ),
           ),
           SizedBox(height: 20),
@@ -93,14 +120,66 @@ class _SignInFormState extends State<SignInForm> {
             },
             child: Text('Sign In'),
           ),
+            SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              SizedBox(width: 50),
+              Text(
+                "Don't have an Account Yet?",
+                style:
+                    TextStyle(color: Colors.purple, fontSize: 15),
+              ),
+              SizedBox(width: 5),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUpScreen()));
+                  },
+                  child: Text(
+                    "SignUp",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ))
+            ],
+          ),
+               SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              SizedBox(width: 50),
+              Text(
+                "Forget Password?",
+                style:
+                    TextStyle(color: Colors.purple, fontSize: 15),
+              ),
+              SizedBox(width: 5),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ForgetScreen()));
+                  },
+                  child: Text(
+                    "Forget",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ))
+            ],
+          )
         ],
       ),
     );
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: SignInScreen(),
-  ));
-}
+// void main() {
+//   runApp(MaterialApp(
+//     home: SignInScreen(),
+//   ));
+// }
