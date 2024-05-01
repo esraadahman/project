@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_flutter/features/dashboard/cubit/dashboard_controller_cubit.dart';
 import 'package:task_flutter/features/dashboard/cubit/dashboard_controller_state.dart';
+import 'package:task_flutter/features/dashboard/modules/Home/view/Page/page.dart';
 import 'package:task_flutter/features/dashboard/modules/User/model/user_model.dart';
 import 'package:task_flutter/features/dashboard/modules/User/view/page/profilePage.dart';
 
@@ -23,8 +24,8 @@ class DashbordPage extends StatelessWidget {
               controller: controller.pageController,
               onPageChanged: controller.onChangeTabIndex,
               children: const [
+                HomePage(),
                 Text('Home'),
-                Text('Saved List'),
                ProfileScreen(),
               ],
             ),

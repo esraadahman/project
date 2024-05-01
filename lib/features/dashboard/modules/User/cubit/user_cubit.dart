@@ -7,12 +7,12 @@ part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserLoading()) {
-    // init();
+    init();
   }
 
   List<UserModel> users = [];
 
-  Future<void> Git() async {
+  Future<void> init() async {
     emit(UserLoading());
     await (await DatabaseRepo.instance).fetch();
     // users = await FirebaseRepo.instance.fetch();
