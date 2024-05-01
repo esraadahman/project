@@ -13,33 +13,39 @@ class onboarding_button extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: SafeArea(
             child: Scaffold(
-                body:BlocProvider<OnboardingControllerCubit>.value(
-                value: controller,
-        child: BlocBuilder< OnboardingControllerCubit,  OnboardingControllerState>(
-        builder: (context, state) {
-      OnboardingControllerCubit controller = context.read<OnboardingControllerCubit>();
-      return
-        Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    FilledButton(
-                        style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Colors.blue)),
-                        onPressed: (){
-                 controller.onChangeToNext();
-                        },
-                        child: Text("next", style: TextStyle(
-                            fontSize: 17
-                        ),)),
-                    FilledButton(
-                        style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Colors.blue)),
-                        onPressed: (){
-                       controller.onChangeToSkip(context);
-                        },
-                        child: Text("Skip", style: TextStyle(
-                            fontSize: 17
-                        ),)),
-                  ],
-                );}))
-            )));
+                body: BlocProvider<OnboardingControllerCubit>.value(
+                    value: controller,
+                    child: BlocBuilder<OnboardingControllerCubit,
+                        OnboardingControllerState>(builder: (context, state) {
+                      OnboardingControllerCubit controller =
+                          context.read<OnboardingControllerCubit>();
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          FilledButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll(Colors.blue)),
+                              onPressed: () {
+                                controller.onChangeToNext();
+                              },
+                              child: Text(
+                                "next",
+                                style: TextStyle(fontSize: 17),
+                              )),
+                          FilledButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll(Colors.blue)),
+                              onPressed: () {
+                                controller.onChangeToSkip(context);
+                              },
+                              child: Text(
+                                "Skip",
+                                style: TextStyle(fontSize: 17),
+                              )),
+                        ],
+                      );
+                    })))));
   }
 }

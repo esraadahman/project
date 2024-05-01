@@ -18,6 +18,7 @@ class RgestrationPage extends StatelessWidget {
               builder: (context, state) {
                 RegestrationCubit controller = context.read<RegestrationCubit>();
                 return Scaffold(
+                  resizeToAvoidBottomInset: false,
                   body: RequiredDateWidget(controller: controller,),
                   bottomNavigationBar:
                       SizedBox(height: 130, child: ButtonWidget(controller: controller,)),

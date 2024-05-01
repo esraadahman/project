@@ -11,12 +11,12 @@ class Button_verfication_Widget extends StatelessWidget{
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FilledButton(
-            style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Colors.blue)),
+            style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Color(0xffC75427))),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => New_pass_Page()));
             },
             child: Text("Confirm", style: TextStyle(
-                fontSize: 17
+                fontSize: 20
             ),)),
       ],
     );

@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,94 +19,96 @@ final RegestrationCubit controller ;
       child:
           BlocBuilder< RegestrationCubit,  RegestrationState>(
             builder: (context, state) {
-              return Form(
-                key: controller.formkey,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 30,
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.network(
-                        "https://th.bing.com/th/id/OIP.s0di0T2Im6UlsWGC_3zYjQHaHa?rs=1&pid=ImgDetMain",
-                        height: 100,
-                        width: 100,
+              return SingleChildScrollView(
+                child: Form(
+                  key: controller.formkey,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 20,
                       ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      "Instagram  Sign Up",
-                      style: TextStyle(
-                        fontSize: 20,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          "assets/images/logo.png",
+                          height: 250,
+                          width: 250,
+                        ),
                       ),
-                    ),
-                
-                
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                        controller: controller.first,
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Friend Circle  Sign Up",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                  
+                  
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                          controller: controller.first,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          keyboardType: TextInputType.name,
+                         
+                          decoration: Decorations_Text_Filed.decorations
+                              .copyWith(labelText: "First Name")),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                          controller: controller.age,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            MyageTextFiledFormate()
+                          ],
+                          // validator: Vaildation().Age,
+                          decoration: Decorations_Text_Filed.decorations
+                              .copyWith(labelText: "Age ", prefixIcon: Icon(Icons.lock_clock))),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      TextFormField(
+                          controller: controller.last,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          keyboardType: TextInputType.name,
+                          // validator: Vaildation().nameVaild,
+                          decoration: Decorations_Text_Filed.decorations
+                              .copyWith(labelText: "Last Name")),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      TextFormField(
+                          controller: controller.email,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          keyboardType: TextInputType.name,
+                          validator: Vaildation().emailVaild,
+                          decoration: Decorations_Text_Filed.decorations.copyWith(
+                              labelText: "Email",
+                              hintText: 'xxxxx@gmail.com',
+                              suffixIcon: Icon(Icons.email_sharp))),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      TextFormField(
+                        controller: controller.pass,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         keyboardType: TextInputType.name,
-                        validator: Vaildation().nameVaild,
-                        decoration: Decorations_Text_Filed.decorations
-                            .copyWith(labelText: "First Name")),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                        controller: controller.age,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          MyageTextFiledFormate()
-                        ],
-                        validator: Vaildation().nameVaild,
-                        decoration: Decorations_Text_Filed.decorations
-                            .copyWith(labelText: "Age ", prefixIcon: Icon(Icons.lock_clock))),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                        controller: controller.last,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        keyboardType: TextInputType.name,
-                        validator: Vaildation().nameVaild,
-                        decoration: Decorations_Text_Filed.decorations
-                            .copyWith(labelText: "Last Name")),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                        controller: controller.email,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        keyboardType: TextInputType.name,
-                        validator: Vaildation().emailVaild,
+                        validator: Vaildation().passwordVaild,
                         decoration: Decorations_Text_Filed.decorations.copyWith(
-                            labelText: "Email",
-                            hintText: 'xxxxx@gmail.com',
-                            suffixIcon: Icon(Icons.email_sharp))),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                      controller: controller.pass,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      keyboardType: TextInputType.name,
-                      validator: Vaildation().passwordVaild,
-                      decoration: Decorations_Text_Filed.decorations.copyWith(
-                        labelText: "Password",
-                        hintText: 'xxxxxx',
-                        suffixIcon: Icon(Icons.lock),
-                      ),
-                      obscureText: true,
-                      obscuringCharacter: '*',
-                    )
-                  ],),
+                          labelText: "Password",
+                          hintText: 'xxxxxx',
+                          suffixIcon: Icon(Icons.lock),
+                        ),
+                        obscureText: true,
+                        obscuringCharacter: '*',
+                      )
+                    ],),
+                ),
               );
             } ),
     );

@@ -18,7 +18,11 @@ class RequiredDate_forget_Widget extends StatelessWidget{
           children: [
          ClipRRect(
            borderRadius: BorderRadius.circular(20),
-           child:  Image.network("https://th.bing.com/th/id/OIP.s0di0T2Im6UlsWGC_3zYjQHaHa?rs=1&pid=ImgDetMain",height: 100,width: 100,),
+          child: Image.asset(
+                          "assets/images/logo.png",
+                          height: 250,
+                          width: 250,
+                        ),
          ), SizedBox(
             height: 15,
           ),

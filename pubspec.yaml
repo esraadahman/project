@@ -35,10 +35,19 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  flutter_native_splash: ^2.4.0
+  flutter_native_splash: ^2.3.10
   shared_preferences: ^2.2.3
   flutter_bloc: ^8.1.5
   go_router: ^13.2.0
+  flutter_launcher_icons: ^0.13.1
+  pin_code_fields: ^8.0.1
+  device_preview: ^1.1.0
+  sqflite: ^2.3.2
+  image_picker: ^1.0.8
+  flutter_smart_dialog: ^4.9.6+1
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.17.4
+  path: 1.8.3
 
 dev_dependencies:
   flutter_test:
@@ -61,15 +70,23 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-    - assets/images/FB_IMG_1613917904844.jpg
+  assets
+    - assets/images/
 flutter_native_splash:
-    color: "#42a5f5"
-    image: "assets/images/FB_IMG_1613917904844.jpg"
+    color: "#F5F6F7"
+    image: "assets/images/logo.png"
 
+flutter_launcher_icons:
+  ios: true
+  android: true
+  image_path_android: "assets/images/logo.png"
+  image_path_ios: "assets/images/logo.png"
+  adaptive_icon_foreground: "assets/images/logo.png"
+  adaptive_icon_background: "assets/images/logo.png"
+ 
     # To add assets to your application, add an assets section, like this:
- # assets:
-  #   - assets/images/FB_IMG_1613917904844.jpg
+# assets:
+  # - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

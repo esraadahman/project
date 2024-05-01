@@ -9,7 +9,7 @@ class appbar_login extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return AppBar(
-      title: Text('Forget Password'),
+      title: Text('Forget Password',style: TextStyle(fontSize: 9),),
       leading: IconButton(
         icon: Icon(Icons.arrow_back_ios),
         onPressed: () {

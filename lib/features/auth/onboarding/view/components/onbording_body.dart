@@ -25,7 +25,7 @@ OnboardingControllerCubit controller;
                             OnboardingControllerCubit controller = context.read<OnboardingControllerCubit>();
                             return PageView(
                               controller: controller.pageController,
-                                children:   List.generate(controller.images.length, (index){
+                                children:   List.generate(controller.data.length, (index){
                                   return Column(
                                     children: [
                                       Image.asset(controller.data[index].image),

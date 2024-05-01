@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget{
           child: Scaffold(
 
             body: RequiredDate_login_Widget(),
-          bottomNavigationBar: SizedBox(height: 200, child: Button_login_Widget()),
+          bottomNavigationBar: SizedBox(height: 210, child: Button_login_Widget()),
           ),
         ));
   }

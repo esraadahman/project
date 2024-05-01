@@ -12,7 +12,7 @@ class RegestrationCubit extends Cubit<RegestrationState> {
     TextEditingController last=TextEditingController();
     TextEditingController email = TextEditingController();
     TextEditingController pass=TextEditingController();
-  TextEditingController age=TextEditingController();
+    TextEditingController age=TextEditingController();
 
     GlobalKey<FormState> formkey = GlobalKey<FormState>();
     void onPressedConfirmButton(BuildContext context){

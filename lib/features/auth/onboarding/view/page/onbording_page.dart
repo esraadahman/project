@@ -22,7 +22,7 @@ class onboarding_page extends StatelessWidget {
               return Scaffold(
                 body: onboarding_body(controller: controller,),
                 bottomNavigationBar:
-                    SizedBox(height: 150, child: onboarding_button(controller: controller,)),
+                    SizedBox(height: 120, child: onboarding_button(controller: controller,)),
               );
             },
           ),

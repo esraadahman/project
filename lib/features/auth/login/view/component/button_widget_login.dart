@@ -11,7 +11,7 @@ class Button_login_Widget extends StatelessWidget{
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FilledButton(
-            style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Colors.blue)),
+            style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Color(0xffC75427))),
             onPressed: (){},
             child: Text("Login", style: TextStyle(
                 fontSize: 17
@@ -22,11 +22,11 @@ class Button_login_Widget extends StatelessWidget{
         TextButton(onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgetPage()));
         }, child: Text("Forget Password", style: TextStyle(
-            fontSize: 22,
-            color: Colors.blue,
+            fontSize: 17,
+            color: Color(0xffC75427),
             decoration: TextDecoration.underline,
             decorationThickness: 2,
-            decorationColor: Colors.blue
+            decorationColor: Color(0xffC75427)
         ),)),
         SizedBox(
           height: 5,
@@ -34,17 +34,17 @@ class Button_login_Widget extends StatelessWidget{
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Does not have an account ?",style: TextStyle(
-                fontSize: 17
+            Text("Do not have an account ?",style: TextStyle(
+                fontSize: 15
             ), ),
             TextButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>RgestrationPage()));
             }, child: Text("Sign Up", style: TextStyle(
-                fontSize: 22,
-                color: Colors.blue,
+                fontSize: 20,
+                color: Color(0xffC75427),
                 decoration: TextDecoration.underline,
                 decorationThickness: 4,
-                decorationColor: Colors.blue
+                decorationColor: Color(0xffC75427)
             ),))
           ],),
 

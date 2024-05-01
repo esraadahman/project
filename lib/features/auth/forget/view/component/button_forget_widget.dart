@@ -10,7 +10,7 @@ class Button_forget_Widget extends StatelessWidget{
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FilledButton(
-          style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Colors.blue)),
+          style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Color(0xffC75427))),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => VerficationPage()));
             },

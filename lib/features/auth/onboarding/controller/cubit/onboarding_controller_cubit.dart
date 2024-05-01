@@ -40,9 +40,9 @@ class OnboardingControllerCubit extends Cubit<OnboardingControllerState> {
         duration: Duration(seconds: 1), curve: Curves.bounceIn);
   }
 
-  void onChangeToSkip(BuildContext context) async {
+  Future<void> onChangeToSkip(BuildContext context) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    bool onBoarding = sharedPreferences.setBool("onboarding", true) as bool;
+    bool onBoarding =  await sharedPreferences.setBool("onboarding", true) as bool;
 
     Navigator.push(
         context, MaterialPageRoute<void>(builder: (context) => LoginPage()));
