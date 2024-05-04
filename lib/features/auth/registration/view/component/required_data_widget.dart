@@ -8,6 +8,8 @@ import 'package:task_flutter/core/utils/decorations_text_filed.dart';
 import 'package:task_flutter/core/utils/validation.dart';
 import 'package:task_flutter/features/auth/registration/controller/cubit/regestration_cubit.dart';
 import 'package:task_flutter/features/auth/registration/view/component/text_name_formate.dart';
+import 'package:task_flutter/features/dashboard/modules/Home/view/Page/innertPages/NewPost/cubit/new_post_cubit.dart';
+import 'package:task_flutter/features/dashboard/modules/Home/view/Page/innertPages/NewPost/view/component/dialog_Widget.dart';
 
 class RequiredDateWidget extends StatelessWidget {
   RequiredDateWidget({required this.controller });
@@ -19,6 +21,7 @@ final RegestrationCubit controller ;
       child:
           BlocBuilder< RegestrationCubit,  RegestrationState>(
             builder: (context, state) {
+             
               return SingleChildScrollView(
                 child: Form(
                   key: controller.formkey,
@@ -27,14 +30,27 @@ final RegestrationCubit controller ;
                       SizedBox(
                         height: 20,
                       ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.asset(
-                          "assets/images/logo.png",
-                          height: 250,
-                          width: 250,
-                        ),
-                      ),
+              SizedBox(height: 20),
+                     controller.file !=null
+                ? GestureDetector(
+                    onTap: () {},
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: FileImage(controller.file!),
+                    ),
+                  )
+                : GestureDetector(
+                    onTap: () {
+                       showModalBottomSheet(context: context, builder: (_)=> UploadImageDialog(uploadImage: (bool fromGallery)=> controller.UploadImage(fromGallery),));
+                     
+                        },
+                   
+                    child: CircleAvatar(
+                      radius: 40,
+                      backgroundImage: NetworkImage(
+                          "https://img.freepik.com/free-photo/portrait-person-with-handwritten-text-it_23-2150734496.jpg?size=626&ext=jpg&ga=GA1.1.1056193589.1669837405&semt=ais"),
+                    ),
+                  ),
                       SizedBox(
                         height: 5,
                       ),

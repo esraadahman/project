@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_flutter/core/repo/firebase.dart';
+import 'package:task_flutter/features/auth/Authentcation/Auth.dart';
 import 'package:task_flutter/features/auth/login/view/page/login_page.dart';
 import 'package:task_flutter/features/auth/verrification/view/page/verification_page.dart';
 import 'package:task_flutter/features/dashboard/modules/User/model/repos/local_db.dart';
@@ -28,6 +30,11 @@ class ButtonWidget extends StatelessWidget{
                     style: const ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(Color(0xffC75427))),
                     onPressed: () {
+                                Authentication.signUpWithEmailAndPassword(
+                                 controller.email.text,  controller.pass.text);
+                                 print ("${controller.url}");
+                               FireStore.AddUserInfotest(controller.first.text.trim(), "fgg", controller.last.text.trim(), controller.url!, controller.age.text.trim(), List.empty(), List.empty());
+                              
                          Navigator.push(context, MaterialPageRoute(builder: (context) => DashbordPage()));
                       controller.onPressedConfirmButton(context);
                     },

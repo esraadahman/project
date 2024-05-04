@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:task_flutter/features/auth/Authentcation/Auth.dart';
 import 'package:task_flutter/features/auth/login/view/page/login_page.dart';
 import 'package:task_flutter/features/auth/verrification/view/page/verification_page.dart';
 import 'package:task_flutter/features/dashboard/view/page/dashboared.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: DashbordPage(),
+      home:  Authentication.auth.currentUser != null ? DashbordPage():LoginPage(),
     );
   }
 }
@@ -63,21 +64,21 @@ class MyApp extends StatelessWidget {
 //   runApp(MyApp);
 // }
 
-class MyRoutes {
-  static List<Route> initRoutes = [
-    MaterialPageRoute<dynamic>(builder: (context) => onboarding_page()),
-    MaterialPageRoute<dynamic>(builder: (context) => RgestrationPage())
-  ];
+// class MyRoutes {
+//   static List<Route> initRoutes = [
+//     MaterialPageRoute<dynamic>(builder: (context) => onboarding_page()),
+//     MaterialPageRoute<dynamic>(builder: (context) => RgestrationPage())
+//   ];
 
-  static Route<dynamic> onGenrateRoute(RouteSettings settings) {
-    switch (settings.name) {
-      case 'Login':
-        return MaterialPageRoute<dynamic>(builder: (context) => LoginPage());
-      case 'Regestration':
-        return MaterialPageRoute<dynamic>(
-            builder: (context) => RgestrationPage());
-      default:
-        return MaterialPageRoute<dynamic>(builder: (context) => LoginPage());
-    }
-  }
-}
+//   static Route<dynamic> onGenrateRoute(RouteSettings settings) {
+//     switch (settings.name) {
+//       case 'Login':
+//         return MaterialPageRoute<dynamic>(builder: (context) => LoginPage());
+//       case 'Regestration':
+//         return MaterialPageRoute<dynamic>(
+//             builder: (context) => RgestrationPage());
+//       default:
+//         return MaterialPageRoute<dynamic>(builder: (context) => LoginPage());
+//     }
+//   }
+// }

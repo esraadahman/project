@@ -1,30 +1,40 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_flutter/core/utils/Themes/AppColors.dart';
+import 'package:task_flutter/features/auth/Authentcation/Auth.dart';
+import 'package:task_flutter/features/auth/registration/view/page/regestration_page.dart';
+import 'package:task_flutter/features/dashboard/modules/Home/cubit/home_cubit.dart';
 
 class HomeAvatar extends StatelessWidget {
   const HomeAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return   Row(
+    
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: BlocBuilder<HomeCubit, HomeState>(
+        builder: (context, state) {
+          HomeCubit controller = HomeCubit();
+          return Row(
             children: [
               const SizedBox(
                 width: 5,
               ),
-              const CircleAvatar(
+               CircleAvatar(
                 radius: 25,
-                // backgroundImage: NetworkImage(userimage!),
-                backgroundImage: AssetImage("assets/images/logo.png"),
+                backgroundImage: NetworkImage(controller.userimage!),
+               
               ),
               const SizedBox(
                 width: 5,
               ),
-              const Column(
+              Column(
                 children: [
                   Text(
-                    // username!,
-                    "Mariam",
+                    controller.username!,
+                  
                     style: TextStyle(
                         color: AppColors.tertiaryColor,
                         fontSize: 15,
@@ -62,11 +72,11 @@ class HomeAvatar extends StatelessWidget {
                   )),
               IconButton(
                   onPressed: () {
-                    // FireStore.auth.signOut();
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => WelcomeScreen()));
+                  Authentication.auth.signOut();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RgestrationPage()));
                   },
                   icon: const Icon(
                     Icons.logout_outlined,
@@ -74,5 +84,8 @@ class HomeAvatar extends StatelessWidget {
                   )),
             ],
           );
+        },
+      ),
+    );
   }
 }

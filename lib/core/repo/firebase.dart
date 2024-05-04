@@ -9,26 +9,21 @@ class FireStore {
   static final auth = FirebaseAuth.instance;
 
   static Future<void> AddUserInfotest(
-      String fullname,
+      String first,
       String username,
-      String phonenumber,
-      String dateOfBirth,
-      String location,
       String userimage,
-      bool isOder16,
+     String last,String age,
       List<Post> posts,
       List<Story> stories) async {
     await FirebaseFirestore.instance
         .collection('Users')
         .doc(auth.currentUser!.uid)
         .set({
-      'fullname': fullname,
+      'first': first,
       'username': username,
-      'phonenumber': phonenumber,
-      'dateOfBirth': dateOfBirth,
-      'location': location,
+     'last':last,
       'userimage': userimage,
-      'isOder16': isOder16,
+    'age':age,
       'posts': posts,
       'story': stories,
     });
